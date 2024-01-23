@@ -7,9 +7,11 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 
-
 {
     ui->setupUi(this);
+    menuCategoriasOriginal = ui->toolButtonCATEGORIAS->menu();
+    connect(ui->toolButtonCATEGORIAS_Duplicado, &QToolButton::clicked, this, &MainWindow::on_toolButtonCATEGORIAS_clicked);
+    connect(ui->toolButtonREGISTRAR_Duplicado, &QToolButton::clicked, this, &MainWindow::on_toolButtonREGISTRAR_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -253,6 +255,7 @@ void MainWindow::on_toolButtonCATEGORIAS_clicked()
 
     // Muestra el menú en la posición del botón
     menuCategorias->exec(ui->toolButtonCATEGORIAS->mapToGlobal(QPoint(0, ui->toolButtonCATEGORIAS->height())));
+
 }
 
 
@@ -502,4 +505,22 @@ void MainWindow::registrar3Seleccionada()
 {
     // Código a ejecutar cuando se selecciona la registrar como vendedor
     ui->stackedWidget->setCurrentIndex(3);
+}
+void MainWindow::duplicarBotones()
+{
+    // Duplica el botón CATEGORIAS
+    QToolButton *toolButtonCATEGORIAS_Duplicado = new QToolButton(this);
+    toolButtonCATEGORIAS_Duplicado->setMenu(menuCategoriasOriginal);
+    toolButtonCATEGORIAS_Duplicado->setPopupMode(QToolButton::InstantPopup);
+    toolButtonCATEGORIAS_Duplicado->setText("Boton Duplicado"); // Puedes ajustar el texto según sea necesario
+    ui->verticalLayout->addWidget(toolButtonCATEGORIAS_Duplicado);
+
+    // Ajusta la posición del menú desplegable
+    QPoint globalPosCATEGORIAS = ui->toolButtonCATEGORIAS->mapToGlobal(QPoint(0, ui->toolButtonCATEGORIAS->height()));
+    menuCategoriasOriginal->exec(globalPosCATEGORIAS);
+}
+
+void MainWindow::on_duplicarBotonesButton_clicked()
+{
+    duplicarBotones();
 }

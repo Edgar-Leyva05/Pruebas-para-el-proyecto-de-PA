@@ -105,6 +105,8 @@ private slots:
     void registrar2Seleccionada();//REGISTRARSE
     void registrar3Seleccionada();//VENDEDOR
 
+    void on_duplicarBotonesButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QAction *accionCategoria1;
@@ -120,6 +122,9 @@ private:
     QAction *accionRegistrar1;
     QAction *accionRegistrar2;
     QAction *accionRegistrar3;
+
+    QMenu *menuCategoriasOriginal;
+    void duplicarBotones();
 
 };
 #endif // MAINWINDOW_H
