@@ -497,7 +497,7 @@ void MainWindow::registrar1Seleccionada()
 void MainWindow::registrar2Seleccionada()
 {
     // Código a ejecutar cuando se selecciona la registrar
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(5);
 }
 
 
@@ -524,3 +524,9 @@ void MainWindow::on_duplicarBotonesButton_clicked()
 {
     duplicarBotones();
 }
+
+void MainWindow::on_pushButtonYOBO_6_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+

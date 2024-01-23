@@ -107,6 +107,8 @@ private slots:
 
     void on_duplicarBotonesButton_clicked();
 
+    void on_pushButtonYOBO_6_clicked();
+
 private:
     Ui::MainWindow *ui;
     QAction *accionCategoria1;
